@@ -15,7 +15,7 @@ type HomeController (logger : ILogger<HomeController>) =
     inherit Controller()
 
     member this.Index () =
-        this.ViewData.["number"] <- 213
+        this.ViewData.["number"] <- Random(DateTime.Now.Second).Next()
         this.View()
 
     member this.Privacy () =
