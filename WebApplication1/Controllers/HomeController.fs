@@ -15,6 +15,7 @@ type HomeController (logger : ILogger<HomeController>) =
     inherit Controller()
 
     member this.Index () =
+        this.ViewData.["number"] <- 213
         this.View()
 
     member this.Privacy () =
