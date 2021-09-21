@@ -13,6 +13,8 @@ open Microsoft.Extensions.Logging
 open Microsoft.Extensions.DependencyInjection
 open File
 
+// https://webapp1xxx.azurewebsites.net/
+
 module Program =
     let exitCode = 0
 
