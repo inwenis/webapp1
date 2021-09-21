@@ -10,6 +10,8 @@ open Microsoft.AspNetCore.Hosting
 open Microsoft.Extensions.Configuration
 open Microsoft.Extensions.Hosting
 open Microsoft.Extensions.Logging
+open Microsoft.Extensions.DependencyInjection
+open File
 
 module Program =
     let exitCode = 0
@@ -18,7 +20,8 @@ module Program =
         Host.CreateDefaultBuilder(args)
             .ConfigureWebHostDefaults(fun webBuilder ->
                 webBuilder.UseStartup<Startup>() |> ignore
-            )
+                
+            ).ConfigureServices(fun x -> x.Add(ServiceDescriptor.Singleton(new ServiceXXX())))
 
     [<EntryPoint>]
     let main args =

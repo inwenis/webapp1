@@ -10,12 +10,14 @@ open Microsoft.AspNetCore.Mvc
 open Microsoft.Extensions.Logging
 
 open WebApplication1.Models
+open File
 
-type HomeController (logger : ILogger<HomeController>) =
+type HomeController (logger : ILogger<HomeController>, s : ServiceXXX) =
     inherit Controller()
 
     member this.Index () =
-        this.ViewData.["number"] <- Random(DateTime.Now.Second).Next()
+        this.ViewData.["number"] <- s.Next()
+        this.ViewData.["counter"] <- s.Counter()
         this.View()
 
     member this.Privacy () =
